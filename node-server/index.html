@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.bootcss.com/jsmpeg/0.2/jsmpg.js"></script>
+</head>
+<body>
+	<canvas id="videoCanvas" width="550" height="360" style="width:550px; height: 360px;"></canvas>
+	<canvas id="videoCanvas1" width="550" height="360" style="width:550px; height: 360px;"></canvas>
+	<canvas id="videoCanvas2" width="550" height="360" style="width:550px; height: 360px;"></canvas>
+	<canvas id="videoCanvas3" width="550" height="360" style="width:550px; height: 360px;"></canvas>
+	<script>
+		/*navigator.registerProtocolHandler("web+ws",
+                                  "%s",
+                                  "rtsp");*/
+
+
+    	client = new WebSocket('ws://localhost:9999');
+    	var canvas = document.getElementById('videoCanvas');
+    	var player = new jsmpeg(client, {canvas:canvas, autoplay:true, loop:true});
+
+
+		client1 = new WebSocket('ws://localhost:9997');
+    		var canvas1 = document.getElementById('videoCanvas1');
+    		var player = new jsmpeg(client1, {canvas:canvas1, autoplay:true, loop:true});
+
+    	client2 = new WebSocket('ws://localhost:9996');
+    		var canvas2 = document.getElementById('videoCanvas2');
+    		var player = new jsmpeg(client2, {canvas:canvas2, autoplay:true, loop:true});
+
+    	client3 = new WebSocket('ws://localhost:9995');
+    		var client3 = document.getElementById('videoCanvas3');
+    		var player = new jsmpeg(client3, {canvas:client3, autoplay:true, loop:true});
+
+    	// client4 = new WebSocket('ws://localhost:9994');
+    	// 	var client4 = document.getElementById('videoCanvas4');
+    	// 	var player = new jsmpeg(client4, {canvas:client4, autoplay:true, loop:true});
+
+    	// client5 = new WebSocket('ws://localhost:9993');
+    	// 	var client5 = document.getElementById('videoCanvas5');
+    	// 	var player = new jsmpeg(client5, {canvas:client5, autoplay:true, loop:true});
+
+		/*var ice = {
+		    'iceServers': [
+		        {'url': 'ws://localhost:9999'},   // google公共测试服务器
+		        // {"url": "turn:user@turnservera.com", "credential": "pass"}
+		    ]
+		};
+
+		// var signalingChannel =  new SignalingChannel();
+
+		var pc = new RTCPeerConnection(ice);*/
+
+
+		/*navigator.getUserMedia = navigator.getUserMedia ||
+    	navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+		var constraints = { // 音频、视频约束
+		  audio: true, // 指定请求音频Track
+		  video: {  // 指定请求视频Track
+		      mandatory: { // 对视频Track的强制约束条件
+		          width: {min: 320},
+		          height: {min: 180}
+		      },
+		      optional: [ // 对视频Track的可选约束条件
+		          {frameRate: 30}
+		      ]
+		  }
+		};
+
+		var video = document.querySelector('video');
+
+		function successCallback(stream) {
+		  if (window.URL) {
+		    video.src = window.URL.createObjectURL(stream);
+		  } else {
+		    video.src = stream;
+		  }
+		}
+
+		function errorCallback(error) {
+		  console.log('navigator.getUserMedia error: ', error);
+		}
+
+		navigator.getUserMedia(constraints, successCallback, errorCallback);
+
+
+
+		
+		ws.onmessage = data => {
+			// player.src = data.data
+			// stream = new MediaStream(ws)
+			console.log(stream)
+		}*/
+
+	</script>
+</body>
+</html>
