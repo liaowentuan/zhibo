@@ -5,10 +5,7 @@
 	<script src="https://cdn.bootcss.com/jsmpeg/0.2/jsmpg.js"></script>
 </head>
 <body>
-	<canvas id="videoCanvas" width="550" height="360" style="width:550px; height: 360px;"></canvas>
-	<canvas id="videoCanvas1" width="550" height="360" style="width:550px; height: 360px;"></canvas>
-	<canvas id="videoCanvas2" width="550" height="360" style="width:550px; height: 360px;"></canvas>
-	<canvas id="videoCanvas3" width="550" height="360" style="width:550px; height: 360px;"></canvas>
+	<canvas id="videoCanvas" width="1100" height="720" style="width:2200px; height: 1440px;"></canvas>
 	<script>
 		/*navigator.registerProtocolHandler("web+ws",
                                   "%s",
@@ -18,19 +15,6 @@
     	client = new WebSocket('ws://localhost:9999');
     	var canvas = document.getElementById('videoCanvas');
     	var player = new jsmpeg(client, {canvas:canvas, autoplay:true, loop:true});
-
-
-		client1 = new WebSocket('ws://localhost:9997');
-    		var canvas1 = document.getElementById('videoCanvas1');
-    		var player = new jsmpeg(client1, {canvas:canvas1, autoplay:true, loop:true});
-
-    	client2 = new WebSocket('ws://localhost:9996');
-    		var canvas2 = document.getElementById('videoCanvas2');
-    		var player = new jsmpeg(client2, {canvas:canvas2, autoplay:true, loop:true});
-
-    	client3 = new WebSocket('ws://localhost:9995');
-    		var client3 = document.getElementById('videoCanvas3');
-    		var player = new jsmpeg(client3, {canvas:client3, autoplay:true, loop:true});
 
     	// client4 = new WebSocket('ws://localhost:9994');
     	// 	var client4 = document.getElementById('videoCanvas4');
