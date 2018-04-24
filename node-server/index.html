@@ -3,18 +3,25 @@
 <head>
 	<title></title>
 	<script src="https://cdn.bootcss.com/jsmpeg/0.2/jsmpg.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
-	<canvas id="videoCanvas" width="1100" height="720" style="width:2200px; height: 1440px;"></canvas>
+	<canvas id="videoCanvas" width="1100" height="720" style="width:1100px; height: 720px;"></canvas>
+	<button onclick="close()">复制文本</button>
 	<script>
 		/*navigator.registerProtocolHandler("web+ws",
                                   "%s",
                                   "rtsp");*/
-
-
-    	client = new WebSocket('ws://localhost:9999');
-    	var canvas = document.getElementById('videoCanvas');
-    	var player = new jsmpeg(client, {canvas:canvas, autoplay:true, loop:true});
+        $.ajax({url:"http://127.0.0.1:61234/server?rtsp=rtsp://admin:lst12345678@10.10.88.11:554/h264/ch1/main/av_stream&port=9999",async:false});
+        setTimeout(function(){
+			client = new WebSocket('ws://localhost:9999');
+			    	var canvas = document.getElementById('videoCanvas');
+			    	var player = new jsmpeg(client, {canvas:canvas, autoplay:true, loop:true});
+        },2000);
+        var close = function () {
+        	console.log("???")
+        	//$.ajax({url:"http://127.0.0.1:61234/server?close=true",async:false});
+        }
 
     	// client4 = new WebSocket('ws://localhost:9994');
     	// 	var client4 = document.getElementById('videoCanvas4');
